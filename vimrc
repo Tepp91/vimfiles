@@ -52,6 +52,12 @@ let g:lightline = {
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
 
+" DoxygenToolKit
+let g:DoxygenToolkit_briefTag_pre = ''
+let g:DoxygenToolkit_returnTag = '@return	'
+let g:DoxygenToolkit_paramTag_pre = '@param	'
+let g:DoxygenToolkit_compactDoc = 'yes'
+
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
 
