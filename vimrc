@@ -88,6 +88,15 @@ augroup auto_comment_off
 	autocmd BufEnter * setlocal formatoptions-=ro
 augroup END
 
+" C++コメント行を書く
+function! WriteCommentLine()
+	let l:indent = (virtcol('.')-1)
+	let l:comment = '//' . repeat('-', 80-indent-2)
+	return comment
+endfunction
+
+inoremap <expr><C-l> WriteCommentLine()
+
 " vimrcを開く
 com! Openrc new $HOME/vimfiles/vimrc
 " gvimrcを開く
