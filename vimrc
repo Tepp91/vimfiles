@@ -9,6 +9,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('embear/vim-localvimrc')
+call dein#add('nfvs/vim-perforce')
 
 call dein#add('Tepp91/molokaiFork')
 call dein#add('Tepp91/DoxygenToolkit.vim')
@@ -28,6 +30,10 @@ let g:neocomplete#enable_smart_case = 1
 let g:lightline = {
 	\'colorscheme' : 'wombat',
 	\}
+
+" vim-localvimrc
+let g:localvimrc_ask=0
+let g:localvimrc_sandbox=0
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
