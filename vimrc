@@ -94,6 +94,10 @@ augroup auto_comment_off
 	autocmd BufEnter * setlocal formatoptions-=ro
 augroup END
 
+" C++インデント
+au BufNewFile,BufRead *.cpp,*.h,*.inl set cindent
+au BufNewFile,BufRead *.cpp,*.h,*.inl set cino=g0:0
+
 " C++コメント行を書く
 function! WriteCommentLine()
 	let l:indent = (virtcol('.')-1)
