@@ -7,6 +7,7 @@ call dein#begin(s:dein_dir)
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neosnippet.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('embear/vim-localvimrc')
@@ -25,6 +26,22 @@ endif
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+
+" neosnipopet
+let g:neosnippet#disable_runtime_snippets = {
+	\ '_' : 1,
+	\ }
+
+let s:snippet_dir_default = expand('~/vimfiles/snippets')
+let s:snippet_dir_company = expand('~/vimfiles/snippets_com')
+if isdirectory(s:snippet_dir_company)
+	let g:neosnippet#snippets_directory = s:snippet_dir_company
+else
+	let g:neosnippet#snippets_directory = s:snippet_dir_default
+endif
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " lightline
 let g:lightline = {
@@ -75,3 +92,4 @@ augroup END
 com! Openrc new $HOME/vimfiles/vimrc
 " gvimrcを開く
 com! Opengrc new $HOME/vimfiles/gvimrc
+
