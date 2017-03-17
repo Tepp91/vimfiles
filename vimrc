@@ -44,6 +44,11 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+autocmd BufWritePost *.snip,*.snippets
+	\ call neosnippet#variables#set_snippets({})
+
+command ReloadSnip :call neosnippet#variables#set_snippets({})
+
 " lightline
 let g:lightline = {
 	\'colorscheme' : 'wombat',
