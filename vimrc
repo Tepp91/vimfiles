@@ -12,6 +12,7 @@ call dein#add('itchyny/lightline.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('embear/vim-localvimrc')
 call dein#add('nfvs/vim-perforce')
+call dein#add('junegunn/vim-easy-align')
 
 call dein#add('Tepp91/molokaiFork')
 call dein#add('Tepp91/DoxygenToolkit.vim')
@@ -57,6 +58,10 @@ let g:DoxygenToolkit_briefTag_pre = ''
 let g:DoxygenToolkit_returnTag = '@return	'
 let g:DoxygenToolkit_paramTag_pre = '@param	'
 let g:DoxygenToolkit_compactDoc = 'yes'
+
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
