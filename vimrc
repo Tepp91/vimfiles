@@ -122,3 +122,14 @@ com! Openrc new $HOME/vimfiles/vimrc
 " gvimrcを開く
 com! Opengrc new $HOME/vimfiles/gvimrc
 
+
+"pythonで書かれたvim script
+python3 import vim
+py3file <sfile>:h/vimrc.py
+
+" C++名前空間を出力
+function! WriteCppNamespace(...)
+	python3 write_cpp_namespace(vim.eval('a:000'))
+endfunction
+
+com! -nargs=+ NS call WriteCppNamespace(<f-args>)
