@@ -3,21 +3,24 @@ let s:dein_repos_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 execute 'set runtimepath^=' . s:dein_repos_dir
 
-call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('embear/vim-localvimrc')
-call dein#add('nfvs/vim-perforce')
-call dein#add('junegunn/vim-easy-align')
+	call dein#add('Shougo/dein.vim')
+	call dein#add('Shougo/neocomplete.vim')
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('itchyny/lightline.vim')
+	call dein#add('ctrlpvim/ctrlp.vim')
+	call dein#add('embear/vim-localvimrc')
+	call dein#add('nfvs/vim-perforce')
+	call dein#add('junegunn/vim-easy-align')
 
-call dein#add('Tepp91/molokaiFork')
-call dein#add('Tepp91/DoxygenToolkit.vim')
+	call dein#add('Tepp91/molokaiFork')
+	call dein#add('Tepp91/DoxygenToolkit.vim')
 
-call dein#end()
+	call dein#end()
+	call dein#save_state()
+endif
 
 if dein#check_install()
 	call dein#install()
