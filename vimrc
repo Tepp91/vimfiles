@@ -14,6 +14,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('embear/vim-localvimrc')
 	call dein#add('nfvs/vim-perforce')
 	call dein#add('junegunn/vim-easy-align')
+	call dein#add('ntpeters/vim-better-whitespace')
 
 	call dein#add('Tepp91/molokaiFork')
 	call dein#add('Tepp91/DoxygenToolkit.vim')
@@ -70,6 +71,9 @@ let g:DoxygenToolkit_compactDoc = 'yes'
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" better-whitespace
+hi ExtraWhitespace guibg=#990000 ctermbg=red
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
