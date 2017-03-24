@@ -16,8 +16,8 @@ if dein#load_state(s:dein_dir)
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('ntpeters/vim-better-whitespace')
 
-	call dein#add('Tepp91/molokaiFork')
-	call dein#add('Tepp91/DoxygenToolkit.vim')
+	call dein#add('tepp91/molokaifork')
+	call dein#add('tepp91/DoxygenToolkit.vim')
 
 	call dein#end()
 	call dein#save_state()
