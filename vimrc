@@ -15,6 +15,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('nfvs/vim-perforce')
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('ntpeters/vim-better-whitespace')
+	call dein#add('wesQ3/vim-windowswap')
 
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
@@ -97,6 +98,8 @@ set shortmess+=I
 set whichwrap=b,s,h,l,<,>,[,],~
 set completeopt=preview
 set autoread
+
+let mapleader = ' '
 
 " 行末ヤンク
 nnoremap Y y$
