@@ -16,6 +16,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('ntpeters/vim-better-whitespace')
 	call dein#add('wesQ3/vim-windowswap')
+	call dein#add('rking/ag.vim')
 
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
