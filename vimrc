@@ -9,6 +9,9 @@ if dein#load_state(s:dein_dir)
 	call dein#add('Shougo/dein.vim')
 	call dein#add('Shougo/neocomplete.vim')
 	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/vimproc.vim')
+	call dein#add('Shougo/unite.vim')
+	call dein#add('Shougo/vimfiler.vim')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('ctrlpvim/ctrlp.vim')
 	call dein#add('embear/vim-localvimrc')
@@ -54,6 +57,9 @@ autocmd BufWritePost *.snip,*.snippets
 	\ call neosnippet#variables#set_snippets({})
 
 command ReloadSnip :call neosnippet#variables#set_snippets({})
+
+" vimproc
+let g:vimproc#download_windows_dll = 1
 
 " lightline
 let g:lightline = {
