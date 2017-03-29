@@ -20,3 +20,6 @@ set guioptions+=b
 set nowrap
 "カーソル行に色を付ける
 set cursorline
+
+" better-whitespace
+hi ExtraWhitespace guibg=#990000 ctermbg=red

@@ -74,9 +74,6 @@ let g:DoxygenToolkit_compactDoc = 'yes'
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" better-whitespace
-hi ExtraWhitespace guibg=#990000 ctermbg=red
-
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
 
