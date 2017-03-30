@@ -20,6 +20,9 @@ if dein#load_state(s:dein_dir)
 	call dein#add('ntpeters/vim-better-whitespace')
 	call dein#add('wesQ3/vim-windowswap')
 	call dein#add('rking/ag.vim')
+	call dein#add('thinca/vim-quickrun')
+	call dein#add('osyo-manga/shabadou.vim')
+	call dein#add('osyo-manga/vim-watchdogs')
 
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
@@ -82,6 +85,25 @@ nmap ga <Plug>(EasyAlign)
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
+
+" watchdog
+let g:watchdogs_check_BufWritePost_enables = {
+	\ "cpp" : 0,
+	\ }
+
+let g:quickrun_config = {
+	\ 	"cpp/watchdogs_checker" : {
+	\		"type" : "watchdogs_checker/msvc",
+	\ 	},
+	\
+	\	"watchdogs_checker/msvc" : {
+	\		"command" : "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe",
+	\		"hook/output_encode/encoding" : "sjis",
+	\		"cmdopt" : "/Zs ",
+	\	},
+	\ }
+
+call watchdogs#setup(g:quickrun_config)
 
 " タブ
 set noexpandtab
