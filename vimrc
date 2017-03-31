@@ -1,3 +1,5 @@
+let g:setting_company = filereadable(expand('~/vimfiles/.company'))
+
 let s:dein_dir = expand('~/vimfiles/dein')
 let s:dein_repos_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -45,12 +47,10 @@ let g:neosnippet#disable_runtime_snippets = {
 	\ '_' : 1,
 	\ }
 
-let s:snippet_dir_default = expand('~/vimfiles/snippets')
-let s:snippet_dir_company = expand('~/vimfiles/snippets_com')
-if isdirectory(s:snippet_dir_company)
-	let g:neosnippet#snippets_directory = s:snippet_dir_company
+if g:setting_company
+	let g:neosnippet#snippets_directory = expand('~/vimfiles/snippets_com')
 else
-	let g:neosnippet#snippets_directory = s:snippet_dir_default
+	let g:neosnippet#snippets_directory = expand('~/vimfiles/snippets')
 endif
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -87,9 +87,15 @@ nmap ga <Plug>(EasyAlign)
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
 
 " watchdog
-let g:watchdogs_check_BufWritePost_enables = {
-	\ "cpp" : 0,
-	\ }
+if g:setting_company
+	let g:watchdogs_check_BufWritePost_enables = {
+		\ "cpp" : 0,
+		\ }
+else
+	let g:watchdogs_check_BufWritePost_enables = {
+		\ "cpp" : 1,
+		\ }
+endif
 
 let g:quickrun_config = {
 	\ 	"cpp/watchdogs_checker" : {
