@@ -149,7 +149,7 @@ nnoremap Y y$
 " ノーマルモードでも改行
 nnoremap <CR> :exec "normal o"<CR>
 nnoremap <S-CR> :exec "normal O"<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd FileType qf nnoremap <buffer> <CR> <CR>
 
 " 改行時にコメントを続けない
 augroup auto_comment_off
