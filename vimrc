@@ -171,9 +171,9 @@ endfunction
 inoremap <expr><C-l> WriteCommentLine()
 
 " vimrcを開く
-com! Openrc new $HOME/vimfiles/vimrc
+com! Openrc tabnew $HOME/vimfiles/vimrc
 " gvimrcを開く
-com! Opengrc new $HOME/vimfiles/gvimrc
+com! Opengrc tabnew $HOME/vimfiles/gvimrc
 
 
 "pythonで書かれたvim script
