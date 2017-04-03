@@ -66,8 +66,18 @@ let g:vimproc#download_windows_dll = 1
 
 " lightline
 let g:lightline = {
-	\'colorscheme' : 'wombat',
-	\}
+	\ 'colorscheme' : 'wombat',
+	\ }
+
+let g:lightline.inactive = {
+	\ 'left' : [
+	\	['filename', 'modified'],
+	\ ],
+	\ 'right' : [
+	\	['lineinfo'],
+	\	['percent'],
+	\ ],
+	\ }
 
 " vim-localvimrc
 let g:localvimrc_ask=0
