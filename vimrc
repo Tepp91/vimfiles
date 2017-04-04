@@ -25,6 +25,8 @@ if dein#load_state(s:dein_dir)
 	call dein#add('thinca/vim-quickrun')
 	call dein#add('osyo-manga/shabadou.vim')
 	call dein#add('osyo-manga/vim-watchdogs')
+	call dein#add('osyo-manga/unite-quickfix')
+	call dein#add('tyru/restart.vim')
 
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
@@ -120,6 +122,10 @@ let g:quickrun_config = {
 	\ }
 
 call watchdogs#setup(g:quickrun_config)
+
+" restart
+let g:restart_sessionoptions = 'blank,curdir,folds,help,localoptions,tabpages'
+
 
 " タブ
 set noexpandtab
