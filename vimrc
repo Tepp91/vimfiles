@@ -1,5 +1,7 @@
 let g:setting_company = filereadable(expand('~/vimfiles/.company'))
 
+let mapleader = ' '
+
 let s:dein_dir = expand('~/vimfiles/dein')
 let s:dein_repos_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -12,7 +14,6 @@ if dein#load_state(s:dein_dir)
 	call dein#add('Shougo/neocomplete.vim')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/vimproc.vim')
-	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/vimfiler.vim')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('ctrlpvim/ctrlp.vim')
@@ -25,8 +26,11 @@ if dein#load_state(s:dein_dir)
 	call dein#add('thinca/vim-quickrun')
 	call dein#add('osyo-manga/shabadou.vim')
 	call dein#add('osyo-manga/vim-watchdogs')
-	call dein#add('osyo-manga/unite-quickfix')
 	call dein#add('tyru/restart.vim')
+
+	call dein#add('Shougo/unite.vim')
+	call dein#add('Shougo/unite-outline')
+	call dein#add('osyo-manga/unite-quickfix')
 
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
@@ -65,6 +69,9 @@ command ReloadSnip :call neosnippet#variables#set_snippets({})
 
 " vimproc
 let g:vimproc#download_windows_dll = 1
+
+" unite
+nnoremap <Leader>o :Unite -vertical outline<CR>
 
 " lightline
 let g:lightline = {
@@ -146,8 +153,6 @@ set shortmess+=I
 set whichwrap=b,s,h,l,<,>,[,],~
 set completeopt=preview
 set autoread
-
-let mapleader = ' '
 
 " 行末ヤンク
 nnoremap Y y$
