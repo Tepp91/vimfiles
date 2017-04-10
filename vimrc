@@ -27,6 +27,8 @@ if dein#load_state(s:dein_dir)
 	call dein#add('osyo-manga/shabadou.vim')
 	call dein#add('osyo-manga/vim-watchdogs')
 	call dein#add('tyru/restart.vim')
+	call dein#add('davidhalter/jedi-vim')
+
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -47,6 +49,9 @@ endif
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+	let g:neocomplete#force_omni_input_patterns = {}
+endif
 
 " neosnipopet
 let g:neosnippet#disable_runtime_snippets = {
@@ -105,34 +110,47 @@ nmap ga <Plug>(EasyAlign)
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
 
+" quick-run
+let g:quickrun_config = {
+	\	'python/watchdogs_checker' : {
+	\		'type' : 'watchdogs_checker/flake8',
+	\	},
+	\
+	\ 	'cpp/watchdogs_checker' : {
+	\		'type' : 'watchdogs_checker/msvc',
+	\ 	},
+	\
+	\	'watchdogs_checker/msvc' : {
+	\		'command' : 'C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe',
+	\		'hook/output_encode/encoding' : 'sjis',
+	\		'cmdopt' : '/Zs ',
+	\	},
+	\ }
+
+
 " watchdog
 if g:setting_company
 	let g:watchdogs_check_BufWritePost_enables = {
-		\ "cpp" : 0,
+		\ 'cpp' : 0,
+		\ 'python' : 1,
 		\ }
 else
 	let g:watchdogs_check_BufWritePost_enables = {
-		\ "cpp" : 1,
+		\ 'cpp' : 1,
+		\ 'python' : 1,
 		\ }
 endif
-
-let g:quickrun_config = {
-	\ 	"cpp/watchdogs_checker" : {
-	\		"type" : "watchdogs_checker/msvc",
-	\ 	},
-	\
-	\	"watchdogs_checker/msvc" : {
-	\		"command" : "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe",
-	\		"hook/output_encode/encoding" : "sjis",
-	\		"cmdopt" : "/Zs ",
-	\	},
-	\ }
 
 call watchdogs#setup(g:quickrun_config)
 
 " restart
 let g:restart_sessionoptions = 'blank,curdir,folds,help,localoptions,tabpages'
 
+" jedi-vim
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " タブ
 set noexpandtab
