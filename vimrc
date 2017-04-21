@@ -28,7 +28,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('osyo-manga/vim-watchdogs')
 	call dein#add('tyru/restart.vim')
 	call dein#add('davidhalter/jedi-vim')
-
+	call dein#add('simeji/winresizer')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
