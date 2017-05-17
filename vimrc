@@ -75,6 +75,16 @@ command ReloadSnip :call neosnippet#variables#set_snippets({})
 " vimproc
 let g:vimproc#download_windows_dll = 1
 
+" Vimfiler
+let g:vimfiler_as_default_explorer = 1
+nnoremap <C-e> :VimFiler -simple<CR>
+
+augroup vimfiler
+	autocmd!
+	autocmd FileType vimfiler nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
+	autocmd FileType vimfiler nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
+augroup END
+
 " unite
 nnoremap <Leader>o :Unite -vertical outline<CR>
 
@@ -151,6 +161,9 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+" winresizer
+let g:winresizer_start_key = '<C-w><C-e>'
 
 " タブ
 set noexpandtab
