@@ -203,10 +203,28 @@ augroup END
 au BufNewFile,BufRead *.cpp,*.h,*.inl set cindent
 au BufNewFile,BufRead *.cpp,*.h,*.inl set cino=g0:0
 
-" C++コメント行を書く
+" コメント行を書く
+let s:comment_prefix = {
+\	'cpp' : '//',
+\	'python' : '# ',
+\	'vim' : '"',
+\	}
+
+let s:comment_line_default_length = 79
+
+let s:comment_line_length = {
+\	'python' : 72,
+\	}
+
 function! WriteCommentLine()
-	let l:indent = (virtcol('.')-1)
-	let l:comment = '//' . repeat('-', 80-indent-2)
+	let prefix = get(s:comment_prefix, &filetype, '')
+	if prefix == ''
+		return ''
+	endif
+
+	let indent = (virtcol('.')-1)
+	let length = get(s:comment_line_length, &filetype, s:comment_line_default_length)
+	let comment = prefix . repeat('-', length-indent-strdisplaywidth(prefix))
 	return comment
 endfunction
 
