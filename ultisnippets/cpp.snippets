@@ -1,0 +1,33 @@
+snippet ns "namespace"
+namespace ${1}{
+	$0
+} // namespace $1
+endsnippet
+
+snippet unnamed "unnamed namespace"
+namespace{
+	$0
+} // unnamed namespace
+endsnippet
+
+snippet src "source file header"
+/*
+ * @file `!v expand("%:t")`
+ * ${1:#brief}
+ */
+endsnippet
+
+snippet inc "include file header"
+#pragma once
+
+/*
+ * @file `!v expand("%:t")`
+ * ${1:#brief}
+ */
+endsnippet
+
+snippet { "{ and }"
+{
+	$0
+}
+endsnippet

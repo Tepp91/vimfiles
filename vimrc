@@ -12,7 +12,6 @@ if dein#load_state(s:dein_dir)
 
 	call dein#add('Shougo/dein.vim')
 	call dein#add('Shougo/neocomplete.vim')
-	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/vimproc.vim')
 	call dein#add('Shougo/vimfiler.vim')
 	call dein#add('itchyny/lightline.vim')
@@ -29,6 +28,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('tyru/restart.vim')
 	call dein#add('davidhalter/jedi-vim')
 	call dein#add('simeji/winresizer')
+	call dein#add('SirVer/ultisnips')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -52,25 +52,6 @@ let g:neocomplete#enable_smart_case = 1
 if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
-
-" neosnipopet
-let g:neosnippet#disable_runtime_snippets = {
-	\ '_' : 1,
-	\ }
-
-if g:setting_company
-	let g:neosnippet#snippets_directory = expand('~/vimfiles/snippets_com')
-else
-	let g:neosnippet#snippets_directory = expand('~/vimfiles/snippets')
-endif
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-autocmd BufWritePost *.snip,*.snippets
-	\ call neosnippet#variables#set_snippets({})
-
-command ReloadSnip :call neosnippet#variables#set_snippets({})
 
 " vimproc
 let g:vimproc#download_windows_dll = 1
@@ -164,6 +145,18 @@ let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*f
 
 " winresizer
 let g:winresizer_start_key = '<C-w><C-e>'
+
+" UltiSnips
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsExpandTrigger='<C-k>'
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+
+if g:setting_company
+	let g:UltiSnipsSnippetDirectories = ['ultisnippets_com']
+else
+	let g:UltiSnipsSnippetDirectories = ['ultisnippets']
+endif
 
 " タブ
 set noexpandtab

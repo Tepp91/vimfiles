@@ -1,4 +1,4 @@
 dein/
 !dein/repos/github.com/Shougo/dein.vim
-snippets_com/
+ultisnippets_com/
 .company
