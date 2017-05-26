@@ -29,6 +29,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('davidhalter/jedi-vim')
 	call dein#add('simeji/winresizer')
 	call dein#add('SirVer/ultisnips')
+	call dein#add('easymotion/vim-easymotion')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -157,6 +158,12 @@ if g:setting_company
 else
 	let g:UltiSnipsSnippetDirectories = ['ultisnippets']
 endif
+
+" easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
 
 " タブ
 set noexpandtab
