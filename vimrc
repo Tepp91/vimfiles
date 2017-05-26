@@ -164,6 +164,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=0
 
+autocmd FileType python setlocal expandtab
+autocmd FileType python setlocal softtabstop=4
+
 " 検索
 set ignorecase
 set smartcase
