@@ -82,6 +82,7 @@ let g:lightline.inactive = {
 	\ 'right' : [
 	\	['lineinfo'],
 	\	['percent'],
+	\	['fileformat', 'fileencoding', 'filetype'],
 	\ ],
 	\ }
 
