@@ -166,6 +166,9 @@ let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 
+" ファイルタイプ
+au BufNewFile,BufRead *.xaml setf xaml
+
 " タブ
 set noexpandtab
 set tabstop=4
@@ -202,6 +205,9 @@ augroup auto_comment_off
 	autocmd!
 	autocmd BufEnter * setlocal formatoptions-=ro
 augroup END
+
+" xml、htmlなどのタグジャンプ
+source $VIMRUNTIME/macros/matchit.vim
 
 " C++インデント
 au BufNewFile,BufRead *.cpp,*.h,*.inl set cindent
