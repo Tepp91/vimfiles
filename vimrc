@@ -29,6 +29,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('simeji/winresizer')
 	call dein#add('SirVer/ultisnips')
 	call dein#add('easymotion/vim-easymotion')
+	call dein#add('thinca/vim-qfreplace')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -67,7 +68,7 @@ augroup vimfiler
 augroup END
 
 " unite
-nnoremap <Leader>o :Unite -vertical outline<CR>
+nnoremap <Leader>o :Unite -no-split outline<CR>
 
 " lightline
 let g:lightline = {
@@ -98,6 +99,20 @@ let g:DoxygenToolkit_compactDoc = 'yes'
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+let g:easy_align_delimiters = {
+\ ']': {
+\     'pattern':       '[[\]]',
+\     'left_margin':   0,
+\     'right_margin':  0,
+\     'stick_to_left': 0,
+\   },
+\ ')': {
+\     'pattern':       '[()]',
+\     'left_margin':   0,
+\     'right_margin':  0,
+\     'stick_to_left': 0,
+\   },
+\ }
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
@@ -198,6 +213,9 @@ nnoremap Y y$
 nnoremap <CR> :exec "normal o"<CR>
 nnoremap <S-CR> :exec "normal O"<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>
+
+" Esc代行
+inoremap <C-j> <Esc>
 
 " 改行時にコメントを続けない
 augroup auto_comment_off
