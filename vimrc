@@ -216,6 +216,7 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>
 
 " Esc代行
 inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
 
 " 改行時にコメントを続けない
 augroup auto_comment_off
