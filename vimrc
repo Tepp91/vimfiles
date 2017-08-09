@@ -117,6 +117,7 @@ let g:easy_align_delimiters = {
 
 " ctrlp対策
 set wildignore+=*.obj,*.sdf,*.smp,*.ipch,*.idb,*.pdb
+let g:ctrlp_switch_buffer = 'et'
 
 " quick-run
 let g:quickrun_config = {
