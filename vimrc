@@ -30,6 +30,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('SirVer/ultisnips')
 	call dein#add('easymotion/vim-easymotion')
 	call dein#add('thinca/vim-qfreplace')
+	call dein#add('tyru/caw.vim')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -180,6 +181,11 @@ let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 
+" caw.vim
+let g:caw_operator_keymappings = 1
+let g:caw_wrap_sp_left = ''
+let g:caw_wrap_sp_right = ''
+
 " ファイルタイプ
 au BufNewFile,BufRead *.xaml setf xaml
 
@@ -217,6 +223,10 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>
 " Esc代行
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
+
+" Include展開
+nnoremap gh :wincmd f<CR>
+nnoremap gv :vertical wincmd f<CR>
 
 " 改行時にコメントを続けない
 augroup auto_comment_off
