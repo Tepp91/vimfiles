@@ -145,7 +145,7 @@ if g:setting_company
 		\ }
 else
 	let g:watchdogs_check_BufWritePost_enables = {
-		\ 'cpp' : 1,
+		\ 'cpp' : 0,
 		\ 'python' : 1,
 		\ }
 endif
