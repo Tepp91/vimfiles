@@ -212,6 +212,8 @@ set shortmess+=I
 set whichwrap=b,s,h,l,<,>,[,],~
 set completeopt=preview
 set autoread
+set iminsert=2
+set imsearch=-1
 
 " 行末ヤンク
 nnoremap Y y$
