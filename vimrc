@@ -229,6 +229,9 @@ vnoremap <C-j> <Esc>
 nnoremap gh :wincmd f<CR>
 nnoremap gv :vertical wincmd f<CR>
 
+" 今開いているファイルのディレクトリに移動
+com! Cdpwd cd %:h
+
 " 改行時にコメントを続けない
 augroup auto_comment_off
 	autocmd!
