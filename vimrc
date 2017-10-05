@@ -31,6 +31,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('easymotion/vim-easymotion')
 	call dein#add('thinca/vim-qfreplace')
 	call dein#add('tyru/caw.vim')
+	call dein#add('gcmt/taboo.vim')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
@@ -186,6 +187,12 @@ nmap <Leader>l <Plug>(easymotion-overwin-line)
 let g:caw_operator_keymappings = 1
 let g:caw_wrap_sp_left = ''
 let g:caw_wrap_sp_right = ''
+
+"taboo.vim
+let g:taboo_tab_format = '%N. %f%m '
+let g:taboo_renamed_tab_format = '%N. %l%m '
+
+com! TabRename exec 'TabooRename ' . expand('%:t:r')
 
 " ファイルタイプ
 au BufNewFile,BufRead *.xaml setf xaml
