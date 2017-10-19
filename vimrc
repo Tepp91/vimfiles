@@ -2,6 +2,8 @@ let g:setting_company = filereadable(expand('~/vimfiles/.company'))
 
 let mapleader = ' '
 
+" プラグイン {{{
+
 let s:dein_dir = expand('~/vimfiles/dein')
 let s:dein_repos_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -194,6 +196,8 @@ let g:taboo_renamed_tab_format = '%N. %l%m '
 
 com! TabRename exec 'TabooRename ' . expand('%:t:r')
 
+" }}} プラグインここまで
+
 " ファイルタイプ
 au BufNewFile,BufRead *.xaml setf xaml
 
@@ -297,3 +301,5 @@ function! WriteCppNamespace(...)
 endfunction
 
 com! -nargs=+ NS call WriteCppNamespace(<f-args>)
+
+" vim:set foldmethod=marker:
