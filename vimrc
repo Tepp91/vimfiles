@@ -79,7 +79,7 @@ let g:lightline = {
 
 let g:lightline.inactive = {
 	\ 'left' : [
-	\	['filename', 'modified'],
+	\	['readonly', 'filename', 'modified'],
 	\ ],
 	\ 'right' : [
 	\	['lineinfo'],
@@ -219,7 +219,7 @@ set shortmess+=I
 set whichwrap=b,s,h,l,<,>,[,],~
 set completeopt=preview
 set autoread
-set iminsert=2
+set iminsert=0
 set imsearch=-1
 
 " 行末ヤンク
