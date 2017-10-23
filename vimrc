@@ -194,7 +194,7 @@ let g:caw_wrap_sp_right = ''
 let g:taboo_tab_format = '%N. %f%m '
 let g:taboo_renamed_tab_format = '%N. %l%m '
 
-com! TabRename exec 'TabooRename ' . expand('%:t:r')
+com! TabRename execute 'TabooRename ' . expand('%:t:r')
 
 " }}} プラグインここまで
 
@@ -230,8 +230,8 @@ set imsearch=-1
 nnoremap Y y$
 
 " ノーマルモードでも改行
-nnoremap <CR> :exec "normal o"<CR>
-nnoremap <S-CR> :exec "normal O"<CR>
+nnoremap <CR> :execute "normal o"<CR>
+nnoremap <S-CR> :execute "normal O"<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>
 
 " Esc代行
@@ -284,6 +284,23 @@ function! WriteCommentLine()
 endfunction
 
 inoremap <expr><C-l> WriteCommentLine()
+
+" 同じ場所にあるソースかヘッダーを開く
+function! OpenSrc()
+	let filepath = ''
+	let ext = expand('%:e')
+	if ext == 'cpp'
+		let filepath = expand('%:p:r') . '.h'
+	elseif ext == 'h'
+		let filepath = expand('%:p:r') . '.cpp'
+	endif
+
+	if filepath != ''
+		execute 'vnew '.filepath
+	endif
+endfunction
+
+com! Src call OpenSrc()
 
 " vimrcを開く
 com! Openrc tabnew $HOME/vimfiles/vimrc
