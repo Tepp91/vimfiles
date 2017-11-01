@@ -285,22 +285,23 @@ endfunction
 
 inoremap <expr><C-l> WriteCommentLine()
 
-" 同じ場所にあるソースかヘッダーを開く
 function! OpenSrc()
-	let filepath = ''
-	let ext = expand('%:e')
-	if ext == 'cpp'
-		let filepath = expand('%:p:r') . '.h'
-	elseif ext == 'h'
-		let filepath = expand('%:p:r') . '.cpp'
-	endif
-
-	if filepath != ''
-		execute 'vnew '.filepath
-	endif
+	execute 'vnew '.expand('%:p:r').'.cpp'
 endfunction
 
 com! Src call OpenSrc()
+
+function! OpenInc()
+	execute 'vnew '.expand('%:p:r').'.h'
+endfunction
+
+com! Inc call OpenInc()
+
+function! OpenInl()
+	execute 'vnew '.expand('%:p:r').'.inl'
+endfunction
+
+com! Inl call OpenInl()
 
 " vimrcを開く
 com! Openrc tabnew $HOME/vimfiles/vimrc
