@@ -1,4 +1,5 @@
 dein/
 !dein/repos/github.com/Shougo/dein.vim
 ultisnippets_com/
+dict/
 .company
