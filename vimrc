@@ -34,6 +34,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('thinca/vim-qfreplace')
 	call dein#add('tyru/caw.vim')
 	call dein#add('gcmt/taboo.vim')
+	call dein#add('dhruvasagar/vim-table-mode')
 
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
