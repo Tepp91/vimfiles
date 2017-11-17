@@ -64,7 +64,8 @@ let g:vimproc#download_windows_dll = 1
 
 " Vimfiler
 let g:vimfiler_as_default_explorer = 1
-nnoremap <C-e> :VimFiler -simple<CR>
+nnoremap <C-e>b :VimFilerBufferDir -simple<CR>
+nnoremap <C-e>d :VimFilerCurrentDir -simple<CR>
 
 augroup vimfiler
 	autocmd!
