@@ -21,18 +21,22 @@ def __open_impl(path, p4):
     global display_list
     display_list.clear()
 
-    depot_file = __find_depot_file(path, p4)
-    if depot_file is None:
-        print('Not found depot file.')
-        return 0
+    depot_file_list = p4.run_filelog('-l', '-i', path)
+    if len(depot_file_list) == 0:
+        print('Notfound depot file.')
+        return
 
     history = ''
-    last_rev = depot_file.revisions[-1]
-    for rev in depot_file.revisions:
-        display_list.append((depot_file.depotFile, rev.rev))
-        history += __make_revision_text(rev)
-        if rev != last_rev:
-            history += '\n'
+    last_rev = depot_file_list[-1].revisions[-1]
+    for depot_file in depot_file_list:
+        history += depot_file.depotFile + '\n'
+        display_list.append(None)
+
+        for rev in depot_file.revisions:
+            display_list.append((depot_file.depotFile, rev.rev))
+            history += __make_revision_text(rev)
+            if rev != last_rev:
+                history += '\n'
 
     # Write to buffer.
     vim.command('topleft 10new')
@@ -81,7 +85,7 @@ def open_rev(row):
 # ----------------------------------------------------------------------
 def __open_rev_impl(p4, row):
     global display_list
-    if len(display_list) <= row:
+    if len(display_list) <= row or display_list[row] is None:
         return
 
     path, rev = display_list[row]
@@ -100,10 +104,20 @@ def diff_prev(row):
 
 # ----------------------------------------------------------------------
 def __diff_prev_impl(p4, row1):
-    row2 = row1 + 1
     global display_list
     list_len = len(display_list)
-    if list_len <= row1:
+    if list_len <= row1 or display_list[row1] is None:
+        return
+
+    row2 = -1
+    tmp_row = row1 + 1
+    while tmp_row < len(display_list):
+        if display_list[tmp_row]:
+            row2 = tmp_row
+            break
+        tmp_row += 1
+
+    if row2 == -1:
         return
 
     path1, rev1 = display_list[row1]

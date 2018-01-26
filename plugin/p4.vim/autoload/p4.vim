@@ -79,14 +79,14 @@ func! p4#history_open()
 	nnoremap <silent><buffer> dp :call p4#history_diff_prev(line('.')-1)<CR>
 endfunc
 
-func! p4#history_open_rev(rev)
+func! p4#history_open_rev(row)
 	quit
-	py3 history.open_rev(int(vim.eval('a:rev')))
+	py3 history.open_rev(int(vim.eval('a:row')))
 endfunc
 
-func! p4#history_diff_prev(rev)
+func! p4#history_diff_prev(row)
 	quit
-	py3 history.diff_prev(int(vim.eval('a:rev')))
+	py3 history.diff_prev(int(vim.eval('a:row')))
 endfunc
 
 func! p4#open_opened()
