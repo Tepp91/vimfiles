@@ -253,12 +253,10 @@ augroup auto_comment_off
 	autocmd BufEnter * setlocal formatoptions-=ro
 augroup END
 
-" 現在のファイル名をクリップボードにコピー
-function! CopyFilePath()
-	let @* = expand('%:p')
-	echo @*
-endfunction
-command! CopyFilePath :call CopyFilePath()
+" 現在のファイパスをクリップボードにコピー
+command! Copyfilepath let @* = expand('%:p') | echo @*
+command! Copyfilename let @* = expand('%:t') | echo @*
+
 
 " xml、htmlなどのタグジャンプ
 source $VIMRUNTIME/macros/matchit.vim
