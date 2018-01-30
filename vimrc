@@ -257,6 +257,8 @@ augroup END
 command! Copyfilepath let @* = expand('%:p') | echo @*
 command! Copyfilename let @* = expand('%:t') | echo @*
 
+" QuickFixを下に表示する
+au FileType qf wincmd J
 
 " xml、htmlなどのタグジャンプ
 source $VIMRUNTIME/macros/matchit.vim
