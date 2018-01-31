@@ -34,12 +34,12 @@ def open_head(path):
 
 # ----------------------------------------------------------------------
 def __open_head_impl(p4, path):
-    depot_file_list = p4.run_filelog(path)
-    if len(depot_file_list) == 0:
+    have_info_list = p4.run_have(path)
+    if len(have_info_list) == 0:
         return
 
-    depot_file = depot_file_list[0]
-    head_rev = depot_file.revisions[0].rev
+    have_info = have_info_list[0]
+    head_rev = int(have_info['haveRev'])
 
     head_path = util.P4Util.export_to_tmppath(p4, path, head_rev)
 
