@@ -241,6 +241,9 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
+" 強調表示解除
+nnoremap <C-n> :noh<CR>
+
 " Include展開
 nnoremap gh :wincmd f<CR>
 nnoremap gv :vertical wincmd f<CR>
