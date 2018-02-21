@@ -35,13 +35,15 @@ if dein#load_state(s:dein_dir)
 	call dein#add('tyru/caw.vim')
 	call dein#add('gcmt/taboo.vim')
 	call dein#add('dhruvasagar/vim-table-mode')
-
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
 	call dein#add('osyo-manga/unite-quickfix')
-
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
+
+	if g:setting_company
+		call dein#add('tepp91/p4.vim')
+	endif
 
 	call dein#end()
 	call dein#save_state()
