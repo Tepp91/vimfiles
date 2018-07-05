@@ -109,13 +109,13 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 let g:easy_align_delimiters = {
 \ ']': {
-\     'pattern':       '[[\]]',
+\     'pattern':       '[\]]',
 \     'left_margin':   0,
 \     'right_margin':  0,
 \     'stick_to_left': 0,
 \   },
 \ ')': {
-\     'pattern':       '[()]',
+\     'pattern':       '[)]',
 \     'left_margin':   0,
 \     'right_margin':  0,
 \     'stick_to_left': 0,
@@ -240,8 +240,10 @@ nnoremap <S-CR> :execute "normal O"<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>
 
 " Esc代行
-inoremap <C-j> <Esc>
-vnoremap <C-j> <Esc>
+imap <C-j> <Esc>
+vmap <C-j> <Esc>
+inoremap <Esc> <Esc>:set iminsert=0<CR>
+
 
 " 強調表示解除
 nnoremap <C-n> :noh<CR>
@@ -268,6 +270,9 @@ au FileType qf wincmd J
 
 " xml、htmlなどのタグジャンプ
 source $VIMRUNTIME/macros/matchit.vim
+
+" タグジャンプ
+nnoremap <C-]> g<C-]>
 
 " C++インデント
 au BufNewFile,BufRead *.cpp,*.h,*.inl set cindent
