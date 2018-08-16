@@ -306,19 +306,34 @@ endfunction
 inoremap <expr><C-l> WriteCommentLine()
 
 function! OpenSrc()
-	execute 'vnew '.expand('%:p:r').'.cpp'
+	let filename = expand('%:p:r').'.cpp'
+	if filereadable(filename)
+		execute 'vnew '.filename
+	else
+		echomsg 'Not found '.filename
+	endif
 endfunction
 
 com! Src call OpenSrc()
 
 function! OpenInc()
-	execute 'vnew '.expand('%:p:r').'.h'
+	let filename = expand('%:p:r').'.h'
+	if filereadable(filename)
+		execute 'vnew '.filename
+	else
+		echomsg 'Not found '.filename
+	endif
 endfunction
 
 com! Inc call OpenInc()
 
 function! OpenInl()
-	execute 'vnew '.expand('%:p:r').'.inl'
+	let filename = expand('%:p:r').'.inl'
+	if filereadable(filename)
+		execute 'vnew '.filename
+	else
+		echomsg 'Not found '.filename
+	endif
 endfunction
 
 com! Inl call OpenInl()
