@@ -275,8 +275,11 @@ source $VIMRUNTIME/macros/matchit.vim
 nnoremap <C-]> g<C-]>
 
 " C++インデント
-au BufNewFile,BufRead *.cpp,*.h,*.inl set cindent
-au BufNewFile,BufRead *.cpp,*.h,*.inl set cino=g0:0
+augroup auto_cindent
+	autocmd!
+	autocmd FIleType cpp set cindent
+	autocmd FIleType cpp set cino=g0:0
+augroup END
 
 " コメント行を書く
 let s:comment_prefix = {
@@ -305,54 +308,9 @@ endfunction
 
 inoremap <expr><C-l> WriteCommentLine()
 
-function! OpenSrc()
-	let filename = expand('%:p:r').'.cpp'
-	if filereadable(filename)
-		execute 'vnew '.filename
-	else
-		echomsg 'Not found '.filename
-	endif
-endfunction
-
-com! Src call OpenSrc()
-
-function! OpenInc()
-	let filename = expand('%:p:r').'.h'
-	if filereadable(filename)
-		execute 'vnew '.filename
-	else
-		echomsg 'Not found '.filename
-	endif
-endfunction
-
-com! Inc call OpenInc()
-
-function! OpenInl()
-	let filename = expand('%:p:r').'.inl'
-	if filereadable(filename)
-		execute 'vnew '.filename
-	else
-		echomsg 'Not found '.filename
-	endif
-endfunction
-
-com! Inl call OpenInl()
-
 " vimrcを開く
 com! Openrc tabnew $HOME/vimfiles/vimrc
 " gvimrcを開く
 com! Opengrc tabnew $HOME/vimfiles/gvimrc
-
-
-"pythonで書かれたvim script
-python3 import vim
-py3file <sfile>:h/vimrc.py
-
-" C++名前空間を出力
-function! WriteCppNamespace(...)
-	python3 write_cpp_namespace(vim.eval('a:000'))
-endfunction
-
-com! -nargs=+ NS call WriteCppNamespace(<f-args>)
 
 " vim:set foldmethod=marker:
