@@ -38,6 +38,8 @@ if dein#load_state(s:dein_dir)
 	call dein#add('Shougo/unite.vim')
 	call dein#add('Shougo/unite-outline')
 	call dein#add('osyo-manga/unite-quickfix')
+	call dein#add('tpope/vim-fugitive')
+	call dein#add('gregsexton/gitv')
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
 
