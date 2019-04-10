@@ -24,11 +24,11 @@ if !exists('*s:WriteNamespace')
 		setlocal paste
 
 		for ns in a:000
-			execute "normal a"."namespace ".ns."{\n"
+			execute "normal i"."namespace ".ns."{\n"
 		endfor
 
 		for ns in reverse(copy(a:000))
-			execute "normal a"."} // namespace ".ns."\n"
+			execute "normal i"."} // namespace ".ns."\n"
 		endfor
 
 		setlocal nopaste
