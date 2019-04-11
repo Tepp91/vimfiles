@@ -232,6 +232,7 @@ set completeopt=preview
 set autoread
 set iminsert=0
 set imsearch=-1
+set nofixeol
 
 " 行末ヤンク
 nnoremap Y y$
