@@ -40,6 +40,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('osyo-manga/unite-quickfix')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('gregsexton/gitv')
+	call dein#add('osyo-manga/vim-anzu')
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
 	call dein#add('tepp91/visual_studio.vim')
@@ -84,6 +85,16 @@ nnoremap <Leader>o :Unite -no-split outline<CR>
 " lightline
 let g:lightline = {
 	\ 'colorscheme' : 'wombat',
+	\ 'component_function': {
+	\ 	'anzu': 'anzu#search_status'
+	\ }
+	\ }
+
+let g:lightline.active = {
+	\ 'left' : [
+	\	['mode', 'paste'],
+	\	['readonly', 'filename', 'modifield', 'anzu'],
+	\ ],
 	\ }
 
 let g:lightline.inactive = {
@@ -202,6 +213,17 @@ let g:caw_wrap_sp_right = ''
 let g:taboo_tab_format = '%N. %f%m '
 let g:taboo_renamed_tab_format = '%N. %l%m '
 
+" vim-anzu
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+augroup vim-anzu
+	autocmd!
+	autocmd WinLeave,TabLeave * call anzu#clear_search_status()
+augroup END
+
+
 com! TabRename execute 'TabooRename ' . expand('%:t:r')
 
 " }}} プラグインここまで
@@ -250,7 +272,7 @@ inoremap <Esc> <Esc>:set iminsert=0<CR>
 
 
 " 強調表示解除
-nnoremap <C-n> :noh<CR>
+nnoremap <C-n> :noh<CR> :call anzu#clear_search_status()<CR>
 
 " Include展開
 nnoremap gh :wincmd f<CR>
