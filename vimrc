@@ -42,6 +42,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('gregsexton/gitv')
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
+	call dein#add('tepp91/visual_studio.vim')
 
 	if g:setting_company
 		call dein#add('tepp91/p4.vim')
