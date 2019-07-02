@@ -145,6 +145,11 @@ let g:ctrlp_switch_buffer = 'et'
 
 " quick-run
 let g:quickrun_config = {
+	\	'python' : {
+	\		'hook/output_encode/enable' : 1,
+	\		'hook/output_encode/encoding' : 'utf8',
+	\	},
+	\
 	\	'python/watchdogs_checker' : {
 	\		'type' : 'watchdogs_checker/flake8',
 	\	},
