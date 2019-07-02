@@ -108,6 +108,9 @@ let g:lightline.inactive = {
 	\ ],
 	\ }
 
+" ctlrp
+let g:ctrlp_by_filename = 1
+
 " vim-localvimrc
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
