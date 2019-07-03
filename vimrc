@@ -18,6 +18,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('Shougo/vimfiler.vim')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('ctrlpvim/ctrlp.vim')
+	call dein#add('FelikZ/ctrlp-py-matcher')
 	call dein#add('embear/vim-localvimrc')
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('ntpeters/vim-better-whitespace')
@@ -110,6 +111,7 @@ let g:lightline.inactive = {
 
 " ctlrp
 let g:ctrlp_by_filename = 1
+let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 
 " vim-localvimrc
 let g:localvimrc_ask=0
