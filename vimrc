@@ -23,7 +23,6 @@ if dein#load_state(s:dein_dir)
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('ntpeters/vim-better-whitespace')
 	call dein#add('wesQ3/vim-windowswap')
-	call dein#add('rking/ag.vim')
 	call dein#add('thinca/vim-quickrun')
 	call dein#add('osyo-manga/shabadou.vim')
 	call dein#add('osyo-manga/vim-watchdogs')
@@ -42,6 +41,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('gregsexton/gitv')
 	call dein#add('osyo-manga/vim-anzu')
+	call dein#add('mileszs/ack.vim')
 	call dein#add('tepp91/molokaifork')
 	call dein#add('tepp91/DoxygenToolkit.vim')
 	call dein#add('tepp91/visual_studio.vim')
@@ -235,6 +235,9 @@ augroup END
 
 
 com! TabRename execute 'TabooRename ' . expand('%:t:r')
+
+" ack.vim
+let g:ackprg = 'pt'
 
 " }}} プラグインここまで
 
